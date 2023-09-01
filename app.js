@@ -5,6 +5,8 @@ const connectDB = require("./db/connect");
 const e = require("express");
 require("dotenv").config();
 
+app.use(express.json());
+
 const PORT = 5000;
 
 //ルーティング設定
