@@ -10,7 +10,12 @@ const showTasks = async () => {
         //APIをたたく 
         const {data: tasks} = await axios.get("/api/v1/tasks");
         console.log(tasks);
-
+        // タスクが1つもないとき
+        console.log(tasks.length);
+        if(tasks.length < 1){
+         tasksDOM.innerHTML = `<h5 class="empty-list">タスクがありません。</h5>`   
+         return;
+        }
         // タスクを出力
         const allTasks = tasks.map((task) => {
             const { completed, _id, name} = task;
